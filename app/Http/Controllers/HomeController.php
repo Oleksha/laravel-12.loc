@@ -6,6 +6,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $data['meta_title'] = 'Welcome';
+        return view('index', $data);
     }
 }
