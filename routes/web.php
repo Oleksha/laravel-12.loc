@@ -11,6 +11,7 @@ Route::get('/', [HomeController::class, 'index']);
 // Registration
 
 Route::get('registration', [AuthController::class, 'registration']);
+Route::post('registration_post', [AuthController::class, 'registration_post']);
 
 // Login
 
