@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Auth;
 
 class DashboardController extends Controller
@@ -10,15 +11,19 @@ class DashboardController extends Controller
     {
         if (Auth::User()->is_role ==  2) {
             // Super Admin
-            echo 'S';die;
+            $data['meta_title'] = 'Super Admin Dashboard Page';
+            $data['getRecord'] = User::find(Auth::User()->id);
+            return view('superadmin.dashboard', $data);
         } elseif (Auth::User()->is_role ==  1) {
             // Admin
-            echo 'A';die;
+            $data['meta_title'] = 'Admin Dashboard Page';
+            $data['getRecord'] = User::find(Auth::User()->id);
+            return view('admin.dashboard', $data);
         } elseif (Auth::User()->is_role ==  0) {
             // User
-            echo 'U';die;
-        } else {
-            return redirect('login')->with('error', 'No Available Email.. Please Check');
+            $data['meta_title'] = 'User Dashboard Page';
+            $data['getRecord'] = User::find(Auth::User()->id);
+            return view('user.dashboard', $data);
         }
     }
 }

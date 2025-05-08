@@ -19,6 +19,10 @@ Route::post('registration_post', [AuthController::class, 'registration_post']);
 Route::get('login', [AuthController::class, 'login']);
 Route::post('login_post', [AuthController::class, 'login_post']);
 
+// Logout
+
+Route::get('logout', [AuthController::class, 'logout']);
+
 // Forgot
 
 Route::get('forgot', [AuthController::class, 'forgot']);
