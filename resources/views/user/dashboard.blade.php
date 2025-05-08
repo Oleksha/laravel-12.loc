@@ -9,6 +9,7 @@
                     <p><b>Email - </b>{{ $getRecord->email }}</p>
                 </div>
                 <div class="signup-link">Logout? <a href="{{ url('logout') }}">Logout</a></div>
+                <div class="signup-link">Home Page? <a href="{{ url('/') }}">Welcome Page (Home)</a></div>
             </form>
         </div>
     </div>
