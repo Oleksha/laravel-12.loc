@@ -12,7 +12,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            if (Auth::check()->is_role == 1) {
+            if (Auth::User()->is_role == 1) {
                 return $next($request);
             } else {
                 Auth::logout();
