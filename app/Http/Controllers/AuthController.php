@@ -72,4 +72,19 @@ class AuthController extends Controller
         $data['meta_title'] = 'Forgot Password';
         return view('auth.forgot', $data);
     }
+
+    public function forgot_post(Request $request)
+    {
+        $count = User::where('email', $request->email)->count();
+        if ($count > 0) {
+            $user = User::where('email', $request->email)->first();
+            $user->save();
+            // Mail start
+
+            // Mail end
+            return redirect()->back()->with('success', 'Password has been reset');
+        } else {
+            return redirect()->back()->with('error', 'Email not found in the system');
+        }
+    }
 }

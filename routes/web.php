@@ -26,6 +26,7 @@ Route::get('logout', [AuthController::class, 'logout']);
 // Forgot
 
 Route::get('forgot', [AuthController::class, 'forgot']);
+Route::post('forgot_post', [AuthController::class, 'forgot_post']);
 
 // Super Admin
 
