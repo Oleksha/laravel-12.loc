@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -38,6 +39,26 @@ class AuthController extends Controller
     {
         $data['meta_title'] = 'Login';
         return view('auth.login', $data);
+    }
+
+    public function login_post(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true)) {
+            if (Auth::User()->is_role ==  2) {
+                // Super Admin
+                echo 'Super Admin'; die;
+            } elseif (Auth::User()->is_role ==  1) {
+                // Admin
+                echo ' Admin'; die;
+            } elseif (Auth::User()->is_role ==  0) {
+                // User
+                echo 'User'; die;
+            } else {
+                return redirect('login')->with('error', 'No Available Email.. Please Check');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Please enter the correct credentials');
+        }
     }
 
     public function forgot()
