@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -34,6 +35,7 @@ Route::post('reset_post/{token}', [AuthController::class, 'postReset']);
 
 Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/dashboard', [DashboardController::class, 'dashboard']);
+    Route::get('superadmin/user/list', [SuperAdminController::class, 'user_list']);
 });
 
 // Admin
