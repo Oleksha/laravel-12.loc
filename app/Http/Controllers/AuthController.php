@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ResetPasswordRequest;
+use App\Mail\ForgotPasswordMail;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class AuthController extends Controller
@@ -80,11 +83,36 @@ class AuthController extends Controller
             $user = User::where('email', $request->email)->first();
             $user->save();
             // Mail start
-
+            Mail::to($user->email)->send(new ForgotPasswordMail($user));
             // Mail end
             return redirect()->back()->with('success', 'Password has been reset');
         } else {
             return redirect()->back()->with('error', 'Email not found in the system');
         }
+    }
+
+    public function getReset(Request $request, $token)
+    {
+        $user = User::where('remember_token', $token);
+        if ($user->count() == 0) {
+            abort(403);
+        }
+        //$user = $user->first();
+        $data['token'] = $token;
+        $data['meta_title'] = 'Reset Password Page';
+        return view('auth.reset', $data);
+    }
+
+    public function postReset(ResetPasswordRequest $request, $token)
+    {
+        $user = User::where('remember_token', $token);
+        if ($user->count() == 0) {
+            abort(403);
+        }
+        $user = $user->first();
+        $user->password = Hash::make($request->password);
+        $user->remember_token = Str::random(50);
+        $user->save();
+        return redirect(url('login'))->with('success', 'Successfully Password Reset');
     }
 }
