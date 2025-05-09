@@ -36,6 +36,7 @@ Route::post('reset_post/{token}', [AuthController::class, 'postReset']);
 Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('superadmin/user/list', [SuperAdminController::class, 'user_list']);
+    Route::get('superadmin/user/delete/{id}', [SuperAdminController::class, 'user_delete']);
 });
 
 // Admin
