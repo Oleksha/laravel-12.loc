@@ -1,5 +1,5 @@
 @component('mail::message')
-    Hi? {{ $user->name }}. Forgot Password?
+    Hi, {{ $user->name }}. Forgot Password?
 
     It Happens.
 
