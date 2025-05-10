@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data['getRecord'] = Student::getRecord();
+        $data['getRecord'] = Student::getRecord($request);
         return view('superadmin.students.index', $data);
     }
 
@@ -33,13 +33,13 @@ class StudentController extends Controller
 
     public function edit($id)
     {
-        $data['getRecord'] = Student::find($id);
+        $data['getRecord'] = Student::query()->find($id);
         return view('superadmin.students.edit', $data);
     }
 
     public function update(Request $request, $id)
     {
-        $save = Student::find($id);
+        $save = Student::query()->find($id);
         $save->name = trim($request->name);
         $save->email = trim($request->email);
         $save->phone = trim($request->phone);
@@ -48,5 +48,11 @@ class StudentController extends Controller
         $save->save();
         return redirect('superadmin/students/list')
             ->with('success', 'Record successfully update');
+    }
+
+    public function destroy($id)
+    {
+        Student::query()->find($id)->delete();
+        return redirect()->back()->with('error', 'Record successfully deleted');
     }
 }
