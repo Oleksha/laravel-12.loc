@@ -34,8 +34,9 @@
                             <td>{{ date('d-m-Y', strtotime($value->date_of_birth)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                             <td>
-                                {{--<button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>--}}
-                                <a href="{{ url('superadmin/student/delete/' . $value->id) }}"
+                                <a href="{{ url('superadmin/students/edit/' . $value->id) }}"
+                                   class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                                <a href="{{ url('superadmin/students/delete/' . $value->id) }}"
                                    class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>

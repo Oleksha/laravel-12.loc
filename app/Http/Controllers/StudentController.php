@@ -30,4 +30,23 @@ class StudentController extends Controller
         return redirect('superadmin/students/list')
             ->with('success', 'Record successfully create');
     }
+
+    public function edit($id)
+    {
+        $data['getRecord'] = Student::find($id);
+        return view('superadmin.students.edit', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $save = Student::find($id);
+        $save->name = trim($request->name);
+        $save->email = trim($request->email);
+        $save->phone = trim($request->phone);
+        $save->address = trim($request->address);
+        $save->date_of_birth = trim($request->date_of_birth);
+        $save->save();
+        return redirect('superadmin/students/list')
+            ->with('success', 'Record successfully update');
+    }
 }
