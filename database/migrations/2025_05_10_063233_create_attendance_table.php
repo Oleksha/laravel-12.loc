@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('attendance', function (Blueprint $table) {
-            $table->increments('attendance_id')->comment('Unique ID');
+            $table->increments('id')->comment('Unique ID');
             $table->unsignedInteger('student_id')->comment('Student attending');
-            $table->foreign('student_id')->references('student_id')->on('students');
+            $table->foreign('student_id')->references('id')->on('students');
             $table->unsignedInteger('class_id')->comment('Which class');
-            $table->foreign('class_id')->references('class_id')->on('classes');
+            $table->foreign('class_id')->references('id')->on('classes');
             $table->date('date')->comment('Attendance date');
             $table->string('status')->comment('Present/Absent/Late');
             $table->timestamps();

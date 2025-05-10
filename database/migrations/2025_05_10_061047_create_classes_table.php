@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('classes', function (Blueprint $table) {
-            $table->increments('class_id')->comment('Unique class/session ID');
+            $table->increments('id')->comment('Unique class/session ID');
             $table->unsignedInteger('subject_id')->comment('Links to Subject');
-            $table->foreign('subject_id')->references('subject_id')->on('subjects');
+            $table->foreign('subject_id')->references('id')->on('subjects');
             $table->unsignedInteger('teacher_id')->comment('Who is teaching');
-            $table->foreign('teacher_id')->references('teacher_id')->on('teachers');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->dateTime('start_time')->comment('When the class starts');
             $table->dateTime('end_time')->comment('When it ends');
             $table->string('room_number')->nullable()->comment('Where it takes place (optional)');

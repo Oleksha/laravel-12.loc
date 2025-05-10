@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+
 class StudentController extends Controller
 {
     public function index()
     {
-        return view('superadmin.students.index');
+        $data['getRecord'] = Student::getRecord();
+        return view('superadmin.students.index', $data);
     }
 }
