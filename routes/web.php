@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,8 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('superadmin/user/list', [SuperAdminController::class, 'user_list']);
     Route::get('superadmin/user/delete/{id}', [SuperAdminController::class, 'user_delete']);
+    // Students
+    Route::get('superadmin/students/list', [StudentController::class, 'index']);
 });
 
 // Admin
