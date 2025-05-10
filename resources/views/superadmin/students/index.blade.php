@@ -3,7 +3,12 @@
     <div class="col-md-12 mt-4">
         <div class="card p-4">
             @include('_message')
-            <h5 class="mb-3">Students List</h5>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Students List</h5>
+                <a href="{{ url('superadmin/students/add') }}" class="btn btn-success">
+                    <i class="fa fa-plus"></i> Add Student
+                </a>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -30,7 +35,8 @@
                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                             <td>
                                 {{--<button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>--}}
-                                <a href="{{ url('superadmin/student/delete/' . $value->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="{{ url('superadmin/student/delete/' . $value->id) }}"
+                                   class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

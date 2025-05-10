@@ -9,10 +9,18 @@ class Student extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'email',
+        'phone',
+        'address',
+        'date_of_birth',
+    ];
+
     public static function getRecord()
     {
         $return = self::select('students.*')
-            ->orderBy('id', 'desc')
+            ->orderBy('id', 'asc')
             ->paginate(20);
         return $return;
     }
