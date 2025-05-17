@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -45,6 +46,7 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/students/edit/{id}', [StudentController::class, 'edit']);
     Route::post('superadmin/students/edit/{id}', [StudentController::class, 'update']);
     Route::get('superadmin/students/delete/{id}', [StudentController::class, 'destroy']);
+    Route::get('superadmin/teachers/list', [TeacherController::class, 'index']);
 });
 
 // Admin

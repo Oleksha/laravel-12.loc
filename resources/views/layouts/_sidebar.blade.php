@@ -19,7 +19,12 @@
                 <i class="fa fa-book-reader"></i> Students
             </a>
         </li>
-        <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-graduation-cap"></i> Teachers</a></li>
+        <li class="nav-item">
+            <a href="{{ url('superadmin/teachers/list') }}"
+               class="nav-link @if(Request::segment(2) == 'teachers') active @endif">
+                <i class="fa fa-graduation-cap"></i> Teachers
+            </a>
+        </li>
         <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-user-graduate"></i> Subjects</a></li>
         <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-theater-masks"></i> Classes</a></li>
         <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-award"></i> Enrollments</a></li>
@@ -30,7 +35,7 @@
 </div>
 <div class="content">
     <nav class="navbar">
-        <span>Super Admin Dashboard</span>
+        <span style="color: yellow;">Contact For Website Related Services +7 (906) 129-10-66</span>
         <a href="#"><i class="fa fa-user"></i> Profile</a>
     </nav>
     <div class="container mt-4">
