@@ -9,7 +9,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $data['getRecord'] = Teacher::all();
+        $data['getRecord'] = Teacher::getRecord();
         return view('superadmin.teachers.index', $data);
     }
 

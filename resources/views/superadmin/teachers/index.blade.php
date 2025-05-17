@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 @section('content')
-    {{--<div class="container">
+    <div class="container">
         <form method="get" id="itemForm" class="d-flex align-items-center flex-wrap">
             <div class="me-2 mb-2">
                 <input type="text" name="id" value="{{ Request()->id }}" id="id" class="form-control" placeholder="ID">
@@ -12,16 +12,16 @@
                 <input type="text" name="email" value="{{ Request()->email }}" id="email" class="form-control" placeholder="Email">
             </div>
             <div class="me-2 mb-2">
-                <input type="date" name="date_of_birth" value="{{ Request()->date_of_birth }}" id="date_of_birth" class="form-control">
+                <input type="date" name="joining_date" value="{{ Request()->joining_date }}" id="joining_date" class="form-control">
             </div>
             <div class="me-2 mb-2">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
             <div class="mb-2">
-                <a href="{{ url('superadmin/students/list') }}" class="btn btn-warning">Reset</a>
+                <a href="{{ url('superadmin/teachers/list') }}" class="btn btn-warning">Reset</a>
             </div>
         </form>
-    </div>--}}
+    </div>
     <div class="col-md-12 mt-4">
         <div class="card p-4">
             @include('_message')
@@ -47,7 +47,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($getRecord as $value)
+                    @forelse($getRecord as $value)
                         <tr>
                             <td>{{ $value->id }}</td>
                             <td>{{ $value->name }}</td>
@@ -64,10 +64,14 @@
                                    class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="100%">No Record Found ...</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
-                {{--{{ $getRecord->links() }}--}}
+                {{ $getRecord->links() }}
             </div>
         </div>
     </div>

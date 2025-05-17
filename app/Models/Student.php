@@ -18,7 +18,7 @@ class Student extends Model
         'date_of_birth',
     ];
 
-    public static function getRecord($request)
+    public static function getRecord()
     {
         $return = self::select('students.*');
         if (!empty(Request::get('id'))) {

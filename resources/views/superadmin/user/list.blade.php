@@ -38,18 +38,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($getRecord as $value)
-                    <tr>
-                        <td>{{ $value->id }}</td>
-                        <td>{{ $value->name }}</td>
-                        <td>{{ $value->email }}</td>
-                        <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
-                        <td>
-                            {{--<button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>--}}
-                            <a href="{{ url('superadmin/user/delete/' . $value->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
+                    @forelse($getRecord as $value)
+                        <tr>
+                            <td>{{ $value->id }}</td>
+                            <td>{{ $value->name }}</td>
+                            <td>{{ $value->email }}</td>
+                            <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
+                            <td>
+                                {{--<button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>--}}
+                                <a href="{{ url('superadmin/user/delete/' . $value->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="100%">No Record Found ...</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>

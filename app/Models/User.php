@@ -49,7 +49,7 @@ class User extends Authenticatable
         ];
     }
 
-    public static function getRecord($request)
+    public static function getRecord()
     {
         $return = self::select('users.*')->where('is_role', 0);
         if (!empty(Request::get('id'))) {

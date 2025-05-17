@@ -47,7 +47,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($getRecord as $value)
+                    @forelse($getRecord as $value)
                         <tr>
                             <td>{{ $value->id }}</td>
                             <td>{{ $value->name }}</td>
@@ -64,7 +64,11 @@
                                    class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="100%">No Record Found ...</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
                 {{ $getRecord->links() }}

@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 
 class SuperAdminController extends Controller
 {
-    public function user_list(Request $request)
+    public function user_list()
     {
-        //$data['getRecord'] = User::where('is_role', 0)->get();
-        $data['getRecord'] = User::getRecord($request);
+        $data['getRecord'] = User::getRecord();
         return view('superadmin.user.list', $data);
     }
 

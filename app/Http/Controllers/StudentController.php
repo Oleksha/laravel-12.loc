@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $data['getRecord'] = Student::getRecord($request);
+        $data['getRecord'] = Student::getRecord();
         return view('superadmin.students.index', $data);
     }
 
