@@ -46,10 +46,15 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/students/edit/{id}', [StudentController::class, 'edit']);
     Route::post('superadmin/students/edit/{id}', [StudentController::class, 'update']);
     Route::get('superadmin/students/delete/{id}', [StudentController::class, 'destroy']);
+    // Teachers
     Route::get('superadmin/teachers/list', [TeacherController::class, 'index']);
     Route::get('superadmin/teachers/add', [TeacherController::class, 'add']);
     Route::post('superadmin/teachers/add', [TeacherController::class, 'store']);
+    Route::get('superadmin/teachers/edit/{id}', [TeacherController::class, 'edit']);
+    Route::post('superadmin/teachers/edit/{id}', [TeacherController::class, 'update']);
+    Route::get('superadmin/teachers/delete/{id}', [TeacherController::class, 'destroy']);
 });
+
 
 // Admin
 

@@ -30,4 +30,29 @@ class TeacherController extends Controller
         return redirect('superadmin/teachers/list')
             ->with('success', 'Record successfully create');
     }
+
+    public function edit($id)
+    {
+        $data['getRecord'] = Teacher::query()->find($id);
+        return view('superadmin.teachers.edit', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $update = Teacher::query()->find($id);
+        $update->name = trim($request->name);
+        $update->email = trim($request->email);
+        $update->phone = trim($request->phone);
+        $update->specialization = trim($request->specialization);
+        $update->joining_date = trim($request->joining_date);
+        $update->save();
+        return redirect('superadmin/teachers/list')
+            ->with('success', 'Record successfully update');
+    }
+
+    public function destroy($id)
+    {
+        Teacher::query()->find($id)->delete();
+        return redirect()->back()->with('error', 'Record successfully deleted');
+    }
 }
