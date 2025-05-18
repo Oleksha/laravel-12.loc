@@ -56,8 +56,8 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/teachers/delete/{id}', [TeacherController::class, 'destroy']);
     // Subjects
     Route::get('superadmin/subjects/list', [SubjectController::class, 'index']);
-    Route::get('superadmin/subjects/add', [TeacherController::class, 'add']);
-    Route::post('superadmin/subjects/add', [TeacherController::class, 'store']);
+    Route::get('superadmin/subjects/add', [SubjectController::class, 'add']);
+    Route::post('superadmin/subjects/add', [SubjectController::class, 'store']);
     Route::get('superadmin/subjects/edit/{id}', [TeacherController::class, 'edit']);
     Route::post('superadmin/subjects/edit/{id}', [TeacherController::class, 'update']);
     Route::get('superadmin/subjects/delete/{id}', [TeacherController::class, 'destroy']);
