@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
@@ -61,6 +62,13 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/subjects/edit/{id}', [SubjectController::class, 'edit']);
     Route::post('superadmin/subjects/edit/{id}', [SubjectController::class, 'update']);
     Route::get('superadmin/subjects/delete/{id}', [SubjectController::class, 'destroy']);
+    // Classes
+    Route::get('superadmin/classes/list', [ClassController::class, 'index']);
+    Route::get('superadmin/classes/add', [SubjectController::class, 'add']);
+    Route::post('superadmin/classes/add', [SubjectController::class, 'store']);
+    Route::get('superadmin/classes/edit/{id}', [SubjectController::class, 'edit']);
+    Route::post('superadmin/classes/edit/{id}', [SubjectController::class, 'update']);
+    Route::get('superadmin/classes/delete/{id}', [SubjectController::class, 'destroy']);
 });
 
 

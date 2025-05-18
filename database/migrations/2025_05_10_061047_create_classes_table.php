@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreign('subject_id')->references('id')->on('subjects');
             $table->unsignedInteger('teacher_id')->comment('Who is teaching');
             $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->dateTime('start_time')->comment('When the class starts');
-            $table->dateTime('end_time')->comment('When it ends');
+            $table->time('start_time')->nullable()->comment('When the class starts');
+            $table->time('end_time')->nullable()->comment('When it ends');
             $table->string('room_number')->nullable()->comment('Where it takes place (optional)');
             $table->timestamps();
         });
