@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subject;
-use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -27,5 +26,27 @@ class SubjectController extends Controller
         $save->save();
         return redirect('superadmin/subjects/list')
             ->with('success', 'Record successfully create');
+    }
+
+    public function edit($id)
+    {
+        $data['getRecord'] = Subject::query()->find($id);
+        return view('superadmin.subjects.edit', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $update = Subject::query()->find($id);
+        $update->name = trim($request->name);
+        $update->description = trim($request->description);
+        $update->save();
+        return redirect('superadmin/subjects/list')
+            ->with('success', 'Record successfully update');
+    }
+
+    public function destroy($id)
+    {
+        Subject::query()->find($id)->delete();
+        return redirect()->back()->with('error', 'Record successfully deleted');
     }
 }
