@@ -47,6 +47,6 @@ class SubjectController extends Controller
     public function destroy($id)
     {
         Subject::query()->find($id)->delete();
-        return redirect()->back()->with('error', 'Record successfully deleted');
+        return redirect()->back()->with('success', 'Record successfully deleted');
     }
 }
