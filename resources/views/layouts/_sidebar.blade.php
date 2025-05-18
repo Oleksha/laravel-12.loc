@@ -25,7 +25,12 @@
                 <i class="fa fa-graduation-cap"></i> Teachers
             </a>
         </li>
-        <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-user-graduate"></i> Subjects</a></li>
+        <li class="nav-item">
+            <a href="{{ url('superadmin/subjects/list') }}"
+               class="nav-link @if(Request::segment(2) == 'subjects') active @endif">
+                <i class="fa fa-user-graduate"></i> Subjects
+            </a>
+        </li>
         <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-theater-masks"></i> Classes</a></li>
         <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-award"></i> Enrollments</a></li>
         <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-credit-card"></i> Payments</a></li>

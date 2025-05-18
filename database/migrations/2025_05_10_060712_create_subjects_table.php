@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->increments('id')->comment('Unique subject ID');
-            $table->string('name')->comment('Subject name (e.d. Math)');
-            $table->text('description')->comment('Short description');
+            $table->string('name')->nullable()->comment('Subject name (e.d. Math)');
+            $table->text('description')->nullable()->comment('Short description');
             $table->timestamps();
         });
     }
