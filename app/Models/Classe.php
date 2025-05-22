@@ -17,7 +17,9 @@ class Classe extends Model
 
     public static function getRecord()
     {
-        $return = self::select('classes.*');
+        $return = self::select('classes.*', 'subjects.name as subject_name', 'teachers.name as teacher_name');
+        $return = $return->join('subjects', 'subjects.id', '=', 'classes.subject_id');
+        $return = $return->join('teachers', 'teachers.id', '=', 'classes.teacher_id');
         /*if (!empty(Request::get('id'))) {
             $return = $return->where('id', Request::get('id'));
         }

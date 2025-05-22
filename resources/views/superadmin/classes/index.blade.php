@@ -50,10 +50,10 @@
                     @forelse($getRecord as $value)
                         <tr>
                             <td>{{ $value->id }}</td>
-                            <td>{{ $value->subject_id }}</td>
-                            <td>{{ $value->teacher_id }}</td>
-                            <td>{{ $value->start_time }}</td>
-                            <td>{{ $value->end_time }}</td>
+                            <td>{{ $value->subject_name }}</td>
+                            <td>{{ $value->teacher_name }}</td>
+                            <td>{{ date('H:i', strtotime($value->start_time)) }}</td>
+                            <td>{{ date('H:i', strtotime($value->end_time)) }}</td>
                             <td>{{ $value->room_number }}</td>
                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($value->updated_at)) }}</td>
