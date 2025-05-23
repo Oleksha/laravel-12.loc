@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
@@ -69,6 +70,13 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/classes/edit/{id}', [ClassController::class, 'edit']);
     Route::post('superadmin/classes/edit/{id}', [ClassController::class, 'update']);
     Route::get('superadmin/classes/delete/{id}', [ClassController::class, 'destroy']);
+    // Enrollment
+    Route::get('superadmin/enrollments/list', [EnrollmentController::class, 'index']);
+    Route::get('superadmin/enrollments/add', [EnrollmentController::class, 'add']);
+    Route::post('superadmin/enrollments/add', [EnrollmentController::class, 'store']);
+    Route::get('superadmin/enrollments/edit/{id}', [EnrollmentController::class, 'edit']);
+    Route::post('superadmin/enrollments/edit/{id}', [EnrollmentController::class, 'update']);
+    Route::get('superadmin/enrollments/delete/{id}', [EnrollmentController::class, 'destroy']);
 });
 
 

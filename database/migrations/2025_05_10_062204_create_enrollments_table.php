@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('enrollments', function (Blueprint $table) {
             $table->increments('id')->comment('Unique ID');
-            $table->unsignedInteger('student_id')->comment('Which student');
+            $table->unsignedInteger('student_id')->nullable()->comment('Which student');
             $table->foreign('student_id')->references('id')->on('students');
-            $table->unsignedInteger('class_id')->comment('Enrolled in which class');
+            $table->unsignedInteger('class_id')->nullable()->comment('Enrolled in which class');
             $table->foreign('class_id')->references('id')->on('classes');
-            $table->date('enrollment_date')->comment('When enrolled');
+            $table->date('enrollment_date')->nullable()->comment('When enrolled');
             $table->timestamps();
         });
     }
