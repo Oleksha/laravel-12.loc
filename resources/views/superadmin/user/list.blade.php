@@ -46,7 +46,11 @@
                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                             <td>
                                 {{--<button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>--}}
-                                <a href="{{ url('superadmin/user/delete/' . $value->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="{{ url('superadmin/user/delete/' . $value->id) }}"
+                                   onclick="return confirm('Are you sure you want to delete?')"
+                                   class="btn btn-sm btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     @empty

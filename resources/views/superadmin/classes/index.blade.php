@@ -1,27 +1,27 @@
 @extends('layouts.backend')
 @section('content')
-    {{--<div class="container">
+    <div class="container">
         <form method="get" id="itemForm" class="d-flex align-items-center flex-wrap">
             <div class="me-2 mb-2">
                 <input type="text" name="id" value="{{ Request()->id }}" id="id" class="form-control" placeholder="ID">
             </div>
             <div class="me-2 mb-2">
-                <input type="text" name="name" value="{{ Request()->name }}" id="name" class="form-control" placeholder="Name">
+                <input type="text" name="subject_id" value="{{ Request()->subject_id }}" id="subject_id" class="form-control" placeholder="Subject Name">
             </div>
             <div class="me-2 mb-2">
-                <input type="text" name="email" value="{{ Request()->description }}" id="email" class="form-control" placeholder="Description">
+                <input type="text" name="teacher_id" value="{{ Request()->teacher_id }}" id="teacher_id" class="form-control" placeholder="Teacher Name">
             </div>
             <div class="me-2 mb-2">
-                <input type="date" name="created_at" value="{{ Request()->created_at }}" id="created_at" class="form-control">
+                <input type="time" name="start_time" value="{{ Request()->start_time }}" id="start_time" class="form-control">
             </div>
             <div class="me-2 mb-2">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
             <div class="mb-2">
-                <a href="{{ url('superadmin/subjects/list') }}" class="btn btn-warning">Reset</a>
+                <a href="{{ url('superadmin/classes/list') }}" class="btn btn-warning">Reset</a>
             </div>
         </form>
-    </div>--}}
+    </div>
     <div class="col-md-12 mt-4">
         <div class="card p-4">
             @include('_message')
@@ -61,6 +61,7 @@
                                 <a href="{{ url('superadmin/classes/edit/' . $value->id) }}"
                                    class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
                                 <a href="{{ url('superadmin/classes/delete/' . $value->id) }}"
+                                   onclick="return confirm('Are you sure you want to delete?')"
                                    class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>

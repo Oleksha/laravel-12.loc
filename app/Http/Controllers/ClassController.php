@@ -55,4 +55,10 @@ class ClassController extends Controller
         return redirect('superadmin/classes/list')
             ->with('success', 'Record successfully update');
     }
+
+    public function destroy(string $id)
+    {
+        Classe::query()->find($id)->delete();
+        return redirect()->back()->with('success', 'Record successfully deleted');
+    }
 }

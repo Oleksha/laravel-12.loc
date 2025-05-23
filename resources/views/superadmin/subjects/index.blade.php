@@ -55,6 +55,7 @@
                                 <a href="{{ url('superadmin/subjects/edit/' . $value->id) }}"
                                    class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
                                 <a href="{{ url('superadmin/subjects/delete/' . $value->id) }}"
+                                   onclick="return confirm('Are you sure you want to delete?')"
                                    class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
