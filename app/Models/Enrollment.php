@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 use Request;
 
 class Enrollment extends Model
@@ -13,9 +14,23 @@ class Enrollment extends Model
         'enrollment_date',
     ];
 
+    public static function recordInsert($request)
+    {
+        try {
+            $save = new self();
+            $save->student_id = trim($request->student_id);
+            $save->class_id = trim($request->class_id);
+            $save->enrollment_date = trim($request->enrollment_date);
+            $save->save();
+        } catch (\Exception $e) {
+            Log::error("Error saving record: " . $e->getMessage());
+            throw $e;
+        }
+    }
+
     public static function getRecord()
     {
-        $return = self::select('enrollments.*', 'students.name as student_name', 'classes.name as class_name');
+        $return = self::select('enrollments.*', 'students.name as student_name', 'classes.room_number as class_room_number');
         $return = $return->join('students', 'students.id', '=', 'enrollments.student_id');
         $return = $return->join('classes', 'classes.id', '=', 'enrollments.class_id');
         // Search start

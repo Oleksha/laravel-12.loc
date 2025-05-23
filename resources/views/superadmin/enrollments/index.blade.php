@@ -36,31 +36,27 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Date of Birth</th>
-                        <th>Registration Date</th>
+                        <th>Student Name</th>
+                        <th>Room Number</th>
+                        <th>Enrollment Date</th>
+                        <th>Created Date</th>
                         <th>Updated Date</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {{--@forelse($getRecord as $value)
+                    @forelse($getRecord as $value)
                         <tr>
                             <td>{{ $value->id }}</td>
-                            <td>{{ $value->name }}</td>
-                            <td>{{ $value->email }}</td>
-                            <td>{{ $value->phone }}</td>
-                            <td>{{ $value->address }}</td>
-                            <td>{{ date('d-m-Y', strtotime($value->date_of_birth)) }}</td>
+                            <td>{{ $value->student_name }}</td>
+                            <td>{{ $value->class_room_number }}</td>
+                            <td>{{ date('d-m-Y', strtotime($value->enrollment_date)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($value->updated_at)) }}</td>
                             <td style="min-width: 80px;">
-                                <a href="{{ url('superadmin/students/edit/' . $value->id) }}"
+                                <a href="{{ url('superadmin/enrollments/edit/' . $value->id) }}"
                                    class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                                <a href="{{ url('superadmin/students/delete/' . $value->id) }}"
+                                <a href="{{ url('superadmin/enrollments/delete/' . $value->id) }}"
                                    onclick="return confirm('Are you sure you want to delete?')"
                                    class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
@@ -69,10 +65,10 @@
                         <tr>
                             <td colspan="100%">No Record Found ...</td>
                         </tr>
-                    @endforelse--}}
+                    @endforelse
                     </tbody>
                 </table>
-                {{--{{ $getRecord->links() }}--}}
+                {{ $getRecord->links() }}
             </div>
         </div>
     </div>
