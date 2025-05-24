@@ -14,7 +14,10 @@ class Enrollment extends Model
         'enrollment_date',
     ];
 
-    public static function recordInsert($request)
+    /**
+     * @throws \Exception
+     */
+    public static function recordInsert($request): void
     {
         try {
             $save = new self();

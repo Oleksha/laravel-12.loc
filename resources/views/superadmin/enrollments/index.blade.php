@@ -37,7 +37,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Student Name</th>
-                        <th>Room Number</th>
+                        <th>Класс Number</th>
                         <th>Enrollment Date</th>
                         <th>Created Date</th>
                         <th>Updated Date</th>
