@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Request;
@@ -15,7 +16,7 @@ class Enrollment extends Model
     ];
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public static function recordInsert($request): void
     {
@@ -25,7 +26,7 @@ class Enrollment extends Model
             $save->class_id = trim($request->class_id);
             $save->enrollment_date = trim($request->enrollment_date);
             $save->save();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error("Error saving record: " . $e->getMessage());
             throw $e;
         }
@@ -51,5 +52,22 @@ class Enrollment extends Model
         }*/
         // Search End
         return $return->orderBy('id', 'asc')->paginate(20);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public static function recordUpdate($request, $id): void
+    {
+        try {
+            $update = self::query()->find($id);
+            $update->student_id = trim($request->student_id);
+            $update->class_id = trim($request->class_id);
+            $update->enrollment_date = trim($request->enrollment_date);
+            $update->save();
+        } catch (Exception $e) {
+            Log::error("Error saving record: " . $e->getMessage());
+            throw $e;
+        }
     }
 }
