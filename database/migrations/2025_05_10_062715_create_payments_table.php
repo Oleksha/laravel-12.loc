@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id')->comment('Unique ID');
-            $table->unsignedInteger('student_id')->comment('Who paid');
+            $table->unsignedInteger('student_id')->nullable()->comment('Who paid');
             $table->foreign('student_id')->references('id')->on('students');
-            $table->decimal('amount')->comment('Amount paid');
-            $table->date('payment_date')->comment('When paid');
-            $table->string('payment_method')->comment('Cash, card, transfer, etc.');
-            $table->text('notes')->comment('Any additional info');
+            $table->decimal('amount')->nullable()->comment('Amount paid');
+            $table->date('payment_date')->nullable()->comment('When paid');
+            $table->string('payment_method')->nullable()->comment('Cash, card, transfer, etc.');
+            $table->text('notes')->nullable()->comment('Any additional info');
             $table->timestamps();
         });
     }
