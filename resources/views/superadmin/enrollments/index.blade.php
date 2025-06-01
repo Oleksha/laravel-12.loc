@@ -1,27 +1,27 @@
 @extends('layouts.backend')
 @section('content')
-    {{--<div class="container">
+    <div class="container">
         <form method="get" id="itemForm" class="d-flex align-items-center flex-wrap">
             <div class="me-2 mb-2">
                 <input type="text" name="id" value="{{ Request()->id }}" id="id" class="form-control" placeholder="ID">
             </div>
             <div class="me-2 mb-2">
-                <input type="text" name="name" value="{{ Request()->name }}" id="name" class="form-control" placeholder="Name">
+                <input type="text" name="student_id" value="{{ Request()->student_id }}" id="student_id" class="form-control" placeholder="Student Name">
             </div>
             <div class="me-2 mb-2">
-                <input type="text" name="email" value="{{ Request()->email }}" id="email" class="form-control" placeholder="Email">
+                <input type="text" name="class_id" value="{{ Request()->class_id }}" id="class_id" class="form-control" placeholder="Class Number">
             </div>
             <div class="me-2 mb-2">
-                <input type="date" name="date_of_birth" value="{{ Request()->date_of_birth }}" id="date_of_birth" class="form-control">
+                <input type="date" name="enrollment_date" value="{{ Request()->enrollment_date }}" id="enrollment_date" class="form-control">
             </div>
             <div class="me-2 mb-2">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
             <div class="mb-2">
-                <a href="{{ url('superadmin/students/list') }}" class="btn btn-warning">Reset</a>
+                <a href="{{ url('superadmin/enrollments/list') }}" class="btn btn-warning">Reset</a>
             </div>
         </form>
-    </div>--}}
+    </div>
     <div class="col-md-12 mt-4">
         <div class="card p-4">
             @include('_message')
@@ -37,7 +37,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Student Name</th>
-                        <th>Класс Number</th>
+                        <th>Class Number</th>
                         <th>Enrollment Date</th>
                         <th>Created Date</th>
                         <th>Updated Date</th>

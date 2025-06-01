@@ -38,18 +38,18 @@ class Enrollment extends Model
         $return = $return->join('students', 'students.id', '=', 'enrollments.student_id');
         $return = $return->join('classes', 'classes.id', '=', 'enrollments.class_id');
         // Search start
-        /*if (!empty(Request::get('id'))) {
-            $return = $return->where('classes.id', Request::get('id'));
+        if (!empty(Request::get('id'))) {
+            $return = $return->where('enrollments.id', Request::get('id'));
         }
-        if (!empty(Request::get('subject_id'))) {
-            $return = $return->where('subjects.name', 'like', '%' . Request::get('subject_id') . '%');
+        if (!empty(Request::get('student_id'))) {
+            $return = $return->where('students.name', 'like', '%' . Request::get('student_id') . '%');
         }
-        if (!empty(Request::get('teacher_id'))) {
-            $return = $return->where('teachers.name', 'like', '%' . Request::get('teacher_id') . '%');
+        if (!empty(Request::get('class_id'))) {
+            $return = $return->where('classes.room_number', 'like', '%' . Request::get('class_id') . '%');
         }
-        if (!empty(Request::get('start_time'))) {
-            $return = $return->where('classes.start_time', 'like', '%' . Request::get('start_time') . '%');
-        }*/
+        if (!empty(Request::get('enrollment_date'))) {
+            $return = $return->where('enrollments.enrollment_date', 'like', '%' . Request::get('enrollment_date') . '%');
+        }
         // Search End
         return $return->orderBy('id', 'asc')->paginate(20);
     }
