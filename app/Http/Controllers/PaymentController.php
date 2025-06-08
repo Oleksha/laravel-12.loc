@@ -30,4 +30,21 @@ class PaymentController extends Controller
         return redirect('superadmin/payments/list')
             ->with('success', 'Record successfully create');
     }
+
+    public function edit(string $id)
+    {
+        $data['getRecord'] = Payment::query()->find($id);
+        $data['getStudents'] = Student::query()->get();
+        return view('superadmin.payments.edit', $data);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function update(Request $request, $id)
+    {
+        Payment::recordUpdate($request, $id);
+        return redirect('superadmin/payments/list')
+            ->with('success', 'Record successfully update');
+    }
 }

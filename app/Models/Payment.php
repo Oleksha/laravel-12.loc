@@ -55,4 +55,23 @@ class Payment extends Model
         // Search End
         return $return->orderBy('id', 'desc')->paginate(20);
     }
+
+    /**
+     * @throws Exception
+     */
+    public static function recordUpdate($request, $id): void
+    {
+        try {
+            $update = self::query()->find($id);
+            $update->student_id = trim($request->student_id);
+            $update->amount = trim($request->amount);
+            $update->payment_date = trim($request->payment_date);
+            $update->payment_method = trim($request->payment_method);
+            $update->notes = trim($request->notes);
+            $update->save();
+        } catch (Exception $e) {
+            Log::error("Error saving record: " . $e->getMessage());
+            throw $e;
+        }
+    }
 }
