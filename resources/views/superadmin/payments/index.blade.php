@@ -21,17 +21,17 @@
                 <a href="{{ url('superadmin/enrollments/list') }}" class="btn btn-warning">Reset</a>
             </div>
         </form>
-    </div>
+    </div>--}}
     <div class="col-md-12 mt-4">
         <div class="card p-4">
             @include('_message')
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="mb-0">Enrollments List</h5>
-                <a href="{{ url('superadmin/enrollments/add') }}" class="btn btn-success">
-                    <i class="fa fa-plus"></i> Add Enrollment
+                <h5 class="mb-0">Payments List</h5>
+                <a href="{{ url('superadmin/payments/add') }}" class="btn btn-success">
+                    <i class="fa fa-plus"></i> Add Payments
                 </a>
             </div>
-            <div class="table-responsive">
+            {{--<div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
@@ -69,7 +69,7 @@
                     </tbody>
                 </table>
                 {{ $getRecord->links() }}
-            </div>
+            </div>--}}
         </div>
-    </div>--}}
+    </div>
 @endsection
