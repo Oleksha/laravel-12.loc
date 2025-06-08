@@ -31,16 +31,16 @@
                     <i class="fa fa-plus"></i> Add Payments
                 </a>
             </div>
-            {{--<div class="table-responsive">
+            <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>ID</th>
                         <th>Student Name</th>
-                        <th>Class Number</th>
-                        <th>Enrollment Date</th>
-                        <th>Created Date</th>
-                        <th>Updated Date</th>
+                        <th>Amount</th>
+                        <th>Payment Date</th>
+                        <th>Payment Method</th>
+                        <th>Notes</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -49,14 +49,14 @@
                         <tr>
                             <td>{{ $value->id }}</td>
                             <td>{{ $value->student_name }}</td>
-                            <td>{{ $value->class_room_number }}</td>
-                            <td>{{ date('d-m-Y', strtotime($value->enrollment_date)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($value->created_at)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($value->updated_at)) }}</td>
+                            <td>{{ $value->amount }}</td>
+                            <td>{{ date('d-m-Y', strtotime($value->payment_date)) }}</td>
+                            <td>{{ $value->payment_method }}</td>
+                            <td>{{ $value->notes }}</td>
                             <td style="min-width: 80px;">
-                                <a href="{{ url('superadmin/enrollments/edit/' . $value->id) }}"
+                                <a href="{{ url('superadmin/payments/edit/' . $value->id) }}"
                                    class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                                <a href="{{ url('superadmin/enrollments/delete/' . $value->id) }}"
+                                <a href="{{ url('superadmin/payments/delete/' . $value->id) }}"
                                    onclick="return confirm('Are you sure you want to delete?')"
                                    class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
@@ -69,7 +69,7 @@
                     </tbody>
                 </table>
                 {{ $getRecord->links() }}
-            </div>--}}
+            </div>
         </div>
     </div>
 @endsection

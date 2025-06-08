@@ -11,7 +11,8 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        return view('superadmin.payments.index');
+        $data['getRecord'] = Payment::getRecord();
+        return view('superadmin.payments.index', $data);
     }
 
     public function add()
