@@ -47,4 +47,10 @@ class PaymentController extends Controller
         return redirect('superadmin/payments/list')
             ->with('success', 'Record successfully update');
     }
+
+    public function destroy($id)
+    {
+        Payment::query()->find($id)->delete();
+        return redirect()->back()->with('success', 'Record successfully deleted');
+    }
 }
