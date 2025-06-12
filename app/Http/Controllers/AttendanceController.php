@@ -32,4 +32,22 @@ class AttendanceController extends Controller
         return redirect('superadmin/attendance/list')
             ->with('success', 'Record successfully create');
     }
+
+    public function edit($id)
+    {
+        $data['getRecord'] = Attendance::query()->find($id);
+        $data['getStudents'] = Student::query()->get();
+        $data['getClasses'] = Classe::query()->get();
+        return view('superadmin.attendance.edit', $data);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function update(Request $request, $id)
+    {
+        Attendance::recordUpdate($request, $id);
+        return redirect('superadmin/attendance/list')
+            ->with('success', 'Record successfully update');
+    }
 }

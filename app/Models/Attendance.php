@@ -54,4 +54,22 @@ class Attendance extends Model
             throw $e;
         }
     }
+
+    /**
+     * @throws Exception
+     */
+    public static function recordUpdate($request, $id): void
+    {
+        try {
+            $update = self::query()->find($id);
+            $update->student_id = trim($request->student_id);
+            $update->class_id = trim($request->class_id);
+            $update->attendance_date = trim($request->attendance_date);
+            $update->status = trim($request->status);
+            $update->save();
+        } catch (Exception $e) {
+            Log::error("Error saving record: " . $e->getMessage());
+            throw $e;
+        }
+    }
 }
