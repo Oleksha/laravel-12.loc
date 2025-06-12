@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
+use Log;
 
 class Attendance extends Model
 {
@@ -33,5 +35,23 @@ class Attendance extends Model
         }*/
         // Search End
         return $return->orderBy('id', 'asc')->paginate(20);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public static function recordInsert($request): void
+    {
+        try {
+            $save = new self();
+            $save->student_id = trim($request->student_id);
+            $save->class_id = trim($request->class_id);
+            $save->attendance_date = trim($request->attendance_date);
+            $save->status = trim($request->status);
+            $save->save();
+        } catch (Exception $e) {
+            Log::error("Error saving record: " . $e->getMessage());
+            throw $e;
+        }
     }
 }
