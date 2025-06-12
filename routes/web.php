@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DashboardController;
@@ -85,6 +86,13 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/payments/edit/{id}', [PaymentController::class, 'edit']);
     Route::post('superadmin/payments/edit/{id}', [PaymentController::class, 'update']);
     Route::get('superadmin/payments/delete/{id}', [PaymentController::class, 'destroy']);
+    // Attendance
+    Route::get('superadmin/attendance/list', [AttendanceController::class, 'index']);
+    Route::get('superadmin/attendance/add', [AttendanceController::class, 'add']);
+    Route::post('superadmin/attendance/add', [AttendanceController::class, 'store']);
+    Route::get('superadmin/attendance/edit/{id}', [AttendanceController::class, 'edit']);
+    Route::post('superadmin/attendance/edit/{id}', [AttendanceController::class, 'update']);
+    Route::get('superadmin/attendance/delete/{id}', [AttendanceController::class, 'destroy']);
 });
 
 
