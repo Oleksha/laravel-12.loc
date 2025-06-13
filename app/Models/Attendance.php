@@ -5,6 +5,7 @@ namespace App\Models;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Log;
+use Request;
 
 class Attendance extends Model
 {
@@ -21,8 +22,8 @@ class Attendance extends Model
         $return = $return->join('students', 'students.id', '=', 'attendances.student_id');
         $return = $return->join('classes', 'classes.id', '=', 'attendances.class_id');
         // Search start
-        /*if (!empty(Request::get('id'))) {
-            $return = $return->where('enrollments.id', Request::get('id'));
+        if (!empty(Request::get('id'))) {
+            $return = $return->where('attendances.id', Request::get('id'));
         }
         if (!empty(Request::get('student_id'))) {
             $return = $return->where('students.name', 'like', '%' . Request::get('student_id') . '%');
@@ -30,9 +31,12 @@ class Attendance extends Model
         if (!empty(Request::get('class_id'))) {
             $return = $return->where('classes.room_number', 'like', '%' . Request::get('class_id') . '%');
         }
-        if (!empty(Request::get('enrollment_date'))) {
-            $return = $return->where('enrollments.enrollment_date', 'like', '%' . Request::get('enrollment_date') . '%');
-        }*/
+        if (!empty(Request::get('attendance_date'))) {
+            $return = $return->where('attendances.attendance_date', 'like', '%' . Request::get('attendance_date') . '%');
+        }
+        if (!empty(Request::get('status'))) {
+            $return = $return->where('attendances.status', 'like', '%' . Request::get('status') . '%');
+        }
         // Search End
         return $return->orderBy('id', 'asc')->paginate(20);
     }

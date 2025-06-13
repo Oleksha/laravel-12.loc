@@ -50,4 +50,10 @@ class AttendanceController extends Controller
         return redirect('superadmin/attendance/list')
             ->with('success', 'Record successfully update');
     }
+
+    public function destroy(string $id)
+    {
+        Attendance::query()->find($id)->delete();
+        return redirect()->back()->with('success', 'Record successfully deleted');
+    }
 }
