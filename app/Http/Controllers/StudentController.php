@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use PDF;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -54,5 +55,17 @@ class StudentController extends Controller
     {
         Student::query()->find($id)->delete();
         return redirect()->back()->with('error', 'Record successfully deleted');
+    }
+
+    public function s_pdf(string $id)
+    {
+        $getRecord = Student::query()->find($id);
+        $data = [
+            'title' => 'Students PDF',
+            'date' => date('d-m-Y'),
+            'getRecord' => $getRecord,
+        ];
+        $pdf = PDF::loadView('pdf.studentsPDF', $data);
+        return $pdf->download('Students.pdf');
     }
 }

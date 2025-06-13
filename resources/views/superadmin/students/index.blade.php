@@ -63,6 +63,8 @@
                                 <a href="{{ url('superadmin/students/delete/' . $value->id) }}"
                                    onclick="return confirm('Are you sure you want to delete?')"
                                    class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="{{ url('superadmin/students/pdf/' . $value->id) }}"
+                                   class="btn btn-sm btn-primary"><i class="fa fa-file-pdf"></i></a>
                             </td>
                         </tr>
                     @empty
