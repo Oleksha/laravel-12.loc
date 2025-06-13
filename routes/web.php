@@ -96,6 +96,7 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/attendance/delete/{id}', [AttendanceController::class, 'destroy']);
     // SMTP
     Route::get('superadmin/smtp/list', [SMTPController::class, 'smtp']);
+    Route::post('superadmin/smtp/list', [SMTPController::class, 'update']);
 });
 
 
