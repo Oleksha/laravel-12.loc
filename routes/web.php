@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SMTPController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\SuperAdminController;
@@ -93,6 +94,8 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/attendance/edit/{id}', [AttendanceController::class, 'edit']);
     Route::post('superadmin/attendance/edit/{id}', [AttendanceController::class, 'update']);
     Route::get('superadmin/attendance/delete/{id}', [AttendanceController::class, 'destroy']);
+    // SMTP
+    Route::get('superadmin/smtp/list', [SMTPController::class, 'smtp']);
 });
 
 

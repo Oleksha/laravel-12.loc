@@ -55,6 +55,12 @@
                 <i class="fa fa-school-circle-check"></i> Attendance
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ url('superadmin/smtp/list') }}"
+               class="nav-link @if(Request::segment(2) == 'smtp') active @endif">
+                <i class="fa fa-envelope"></i> SMTP
+            </a>
+        </li>
         <li class="nav-item"><a href="{{ url('logout') }}" class="nav-link"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </div>
