@@ -1,5 +1,97 @@
 @extends('layouts.backend')
 @section('content')
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="{{ url('superadmin/user/list') }}" style="text-decoration: none;">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-header">Users</div>
+                        <div class="card-body">
+                            <h5 class="card-title">1</h5>
+                            <p class="card-text">Total Users</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url('superadmin/students/list') }}" style="text-decoration: none;">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-header">Students</div>
+                        <div class="card-body">
+                            <h5 class="card-title">1</h5>
+                            <p class="card-text">Total Students</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url('superadmin/teachers/list') }}" style="text-decoration: none;">
+                    <div class="card text-black bg-warning mb-3">
+                        <div class="card-header">Teachers</div>
+                        <div class="card-body">
+                            <h5 class="card-title">10</h5>
+                            <p class="card-text">Total Teachers</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url('superadmin/subjects/list') }}" style="text-decoration: none;">
+                    <div class="card text-black bg-info mb-3">
+                        <div class="card-header">Subjects</div>
+                        <div class="card-body">
+                            <h5 class="card-title">8</h5>
+                            <p class="card-text">Total Subjects</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url('superadmin/classes/list') }}" style="text-decoration: none;">
+                    <div class="card text-white bg-danger mb-3">
+                        <div class="card-header">Classes</div>
+                        <div class="card-body">
+                            <h5 class="card-title">20</h5>
+                            <p class="card-text">Total Classes</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url('superadmin/enrollments/list') }}" style="text-decoration: none;">
+                    <div class="card text-white bg-secondary mb-3">
+                        <div class="card-header">Enrollments</div>
+                        <div class="card-body">
+                            <h5 class="card-title">20</h5>
+                            <p class="card-text">Total Enrollments</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url('superadmin/payments/list') }}" style="text-decoration: none;">
+                    <div class="card text-white bg-dark mb-3">
+                        <div class="card-header">Payments</div>
+                        <div class="card-body">
+                            <h5 class="card-title">20</h5>
+                            <p class="card-text">Total Payments</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url('superadmin/attendance/list') }}" style="text-decoration: none;">
+                    <div class="card text-black bg-light mb-3">
+                        <div class="card-header">Attendance</div>
+                        <div class="card-body">
+                            <h5 class="card-title">20</h5>
+                            <p class="card-text">Total Attendance</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 
     {{--
     <div class="col-md-12">
