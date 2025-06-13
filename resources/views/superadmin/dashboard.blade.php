@@ -7,7 +7,7 @@
                     <div class="card text-white bg-primary mb-3">
                         <div class="card-header">Users</div>
                         <div class="card-body">
-                            <h5 class="card-title">1</h5>
+                            <h5 class="card-title">{{ $totalUsers }}</h5>
                             <p class="card-text">Total Users</p>
                         </div>
                     </div>
@@ -18,7 +18,7 @@
                     <div class="card text-white bg-success mb-3">
                         <div class="card-header">Students</div>
                         <div class="card-body">
-                            <h5 class="card-title">1</h5>
+                            <h5 class="card-title">{{ $totalStudents }}</h5>
                             <p class="card-text">Total Students</p>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                     <div class="card text-black bg-warning mb-3">
                         <div class="card-header">Teachers</div>
                         <div class="card-body">
-                            <h5 class="card-title">10</h5>
+                            <h5 class="card-title">{{ $totalTeachers }}</h5>
                             <p class="card-text">Total Teachers</p>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                     <div class="card text-black bg-info mb-3">
                         <div class="card-header">Subjects</div>
                         <div class="card-body">
-                            <h5 class="card-title">8</h5>
+                            <h5 class="card-title">{{ $totalSubjects }}</h5>
                             <p class="card-text">Total Subjects</p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="card text-white bg-danger mb-3">
                         <div class="card-header">Classes</div>
                         <div class="card-body">
-                            <h5 class="card-title">20</h5>
+                            <h5 class="card-title">{{ $totalClasses }}</h5>
                             <p class="card-text">Total Classes</p>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                     <div class="card text-white bg-secondary mb-3">
                         <div class="card-header">Enrollments</div>
                         <div class="card-body">
-                            <h5 class="card-title">20</h5>
+                            <h5 class="card-title">{{ $totalEnrollments }}</h5>
                             <p class="card-text">Total Enrollments</p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                     <div class="card text-white bg-dark mb-3">
                         <div class="card-header">Payments</div>
                         <div class="card-body">
-                            <h5 class="card-title">20</h5>
+                            <h5 class="card-title">{{ $totalPayments }}</h5>
                             <p class="card-text">Total Payments</p>
                         </div>
                     </div>
@@ -82,10 +82,10 @@
             <div class="col-md-3">
                 <a href="{{ url('superadmin/attendance/list') }}" style="text-decoration: none;">
                     <div class="card text-black bg-light mb-3">
-                        <div class="card-header">Attendance</div>
+                        <div class="card-header">Attendances</div>
                         <div class="card-body">
-                            <h5 class="card-title">20</h5>
-                            <p class="card-text">Total Attendance</p>
+                            <h5 class="card-title">{{ $totalAttendances }}</h5>
+                            <p class="card-text">Total Attendances</p>
                         </div>
                     </div>
                 </a>
