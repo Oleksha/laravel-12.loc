@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attendance;
+use App\Models\Enrollment;
+use App\Models\Payment;
 use App\Models\Student;
 use PDF;
 use Illuminate\Http\Request;
@@ -53,8 +56,11 @@ class StudentController extends Controller
 
     public function destroy($id)
     {
+        Attendance::query()->where('attendances.student_id', $id)->delete();
+        Enrollment::query()->where('enrollments.student_id', $id)->delete();
+        Payment::query()->where('payments.student_id', $id)->delete();
         Student::query()->find($id)->delete();
-        return redirect()->back()->with('error', 'Record successfully deleted');
+        return redirect()->back()->with('success', 'Record Successfully Deleted');
     }
 
     public function pdf_student_one(string $id)
