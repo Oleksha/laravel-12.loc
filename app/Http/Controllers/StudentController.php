@@ -57,7 +57,7 @@ class StudentController extends Controller
         return redirect()->back()->with('error', 'Record successfully deleted');
     }
 
-    public function s_pdf(string $id)
+    public function pdf_student_one(string $id)
     {
         $getRecord = Student::query()->find($id);
         $data = [
@@ -65,7 +65,19 @@ class StudentController extends Controller
             'date' => date('d-m-Y'),
             'getRecord' => $getRecord,
         ];
-        $pdf = PDF::loadView('pdf.studentsPDF', $data);
+        $pdf = PDF::loadView('pdf.oneStudent', $data);
         return $pdf->download('Students.pdf');
+    }
+
+    public function pdf_student_all()
+    {
+        $getRecord = Student::query()->get();
+        $data = [
+            'title' => 'Students PDF',
+            'date' => date('d-m-Y'),
+            'getRecord' => $getRecord,
+        ];
+        $pdf = PDF::loadView('pdf.allStudents', $data);
+        return $pdf->download('StudentsAll.pdf');
     }
 }
