@@ -56,4 +56,10 @@ class AttendanceController extends Controller
         Attendance::query()->find($id)->delete();
         return redirect()->back()->with('success', 'Record successfully deleted');
     }
+
+    public function truncate()
+    {
+        Attendance::truncate();
+        return redirect()->back()->with('success', 'All Record Successfully Deleted');
+    }
 }

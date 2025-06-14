@@ -30,9 +30,16 @@
             @include('_message')
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="mb-0">Attendance List</h5>
-                <a href="{{ url('superadmin/attendance/add') }}" class="btn btn-success">
-                    <i class="fa fa-plus"></i> Add Attendance
-                </a>
+                <div>
+                    <a href="{{ url('superadmin/attendance/truncate') }}"
+                       onclick="return confirm('Are you sure you want to delete?')"
+                       class="btn btn-danger">
+                        <i class="fa fa-trash"></i> Attendance Truncate
+                    </a>
+                    <a href="{{ url('superadmin/attendance/add') }}" class="btn btn-success">
+                        <i class="fa fa-plus"></i> Add Attendance
+                    </a>
+                </div>
             </div>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
