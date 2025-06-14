@@ -89,6 +89,7 @@ Route::group(['middleware' => 'superadmin'], function () {
     Route::get('superadmin/payments/edit/{id}', [PaymentController::class, 'edit']);
     Route::post('superadmin/payments/edit/{id}', [PaymentController::class, 'update']);
     Route::get('superadmin/payments/delete/{id}', [PaymentController::class, 'destroy']);
+    Route::get('superadmin/payments/join_pdf', [PaymentController::class, 'join_pdf']);
     // Attendance
     Route::get('superadmin/attendance/list', [AttendanceController::class, 'index']);
     Route::get('superadmin/attendance/add', [AttendanceController::class, 'add']);

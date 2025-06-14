@@ -6,6 +6,7 @@ use App\Models\Payment;
 use App\Models\Student;
 use Exception;
 use Illuminate\Http\Request;
+use PDF;
 
 class PaymentController extends Controller
 {
@@ -52,5 +53,14 @@ class PaymentController extends Controller
     {
         Payment::query()->find($id)->delete();
         return redirect()->back()->with('success', 'Record successfully deleted');
+    }
+
+    public function join_pdf()
+    {
+        $data['getRecords'] = Payment::select('payments.*', 'students.name')
+            ->join('students', 'students.id', '=', 'payments.student_id')
+            ->get();
+        $pdf = PDF::loadView('pdf.payments_join', $data);
+        return $pdf->download('PaymentsJoin.pdf');
     }
 }
